@@ -18,6 +18,10 @@
         {
             Read=1, write=2, Delete=4, Execute=8
         }
+        enum Colors
+        {
+            None,Red, Green, Blue
+        }
         static void Main(string[] args)
         {
             #region Q1
@@ -55,8 +59,23 @@
             #endregion
 
             #region Q4
-            permission p = (permission)13;
-            Console.WriteLine(p);
+            //permission p = (permission)13;
+            //Console.WriteLine(p);
+            #endregion
+
+            #region Q5
+            Console.WriteLine("Enter a Color : ");
+
+            string input = Console.ReadLine();
+                bool isValid = Enum.TryParse(typeof(Colors), input, true, out object colorEnum);
+                if (isValid) 
+                {
+                    Console.WriteLine(colorEnum + " is a Primary Color");
+                }
+
+                else Console.WriteLine(input + " is not a Primary Color");
+
+
             #endregion
         }
     }
